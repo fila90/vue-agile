@@ -369,7 +369,7 @@
                     }
 
                     this.nextSlide()
-                }, this.autoplaySpeed)
+                }, this.defaultSettings.autoplaySpeed)
             },
 
             stopAutoplay () {
