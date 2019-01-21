@@ -25,8 +25,8 @@
     >
       <li
         v-for="n in slidesCount"
-        :key="n"
         class="agile__dot"
+        :key="n"
         :class="{'agile__dot--current': n - 1 === currentSlide}"
         @mouseover="handleMouseOver('dot')"
         @mouseout="handleMouseOut('dot')"
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-  export default {
+    export default {
         name: 'agile',
 
         props: {
@@ -597,11 +597,8 @@
     }
 </script>
 
-<style
-  lang="scss"
-  type="text/scss"
->
-  .agile {
+<style lang="scss" type="text/scss">
+    .agile {
         position: relative;
 
         &, * {
