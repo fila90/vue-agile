@@ -45,9 +45,9 @@ Vue.use(VueAgile)
             <div class="slide">
                 <h3>slide 1</h3>
             </div>
-            
+
             ...
-            
+
             <div class="slide">
                 <h3>slide n</h3>
             </div>
@@ -65,18 +65,21 @@ Every first-level child of `<agile>` is a new slide.
 | prevArrow | string (HTML/SVG) | `<svg>` | Prev arrow code – more in „Arrows” section |
 | nextArrow | string (HTML/SVG) | `<svg>` | Next arrow code – more in „Arrows” section |
 | autoplay | boolean | `false` | Enable autoplay |
-| autoplaySpeed | integer (ms) | `3000` | Autoplay interval in milliseconds | 
+| autoplaySpeed | integer (ms) | `3000` | Autoplay interval in milliseconds |
 | dots | boolean | `true` | Enable dot indicators/pagination |
 | fade | boolean | `false` | Enable fade effect |
-| infinite | boolean | `true` | Infinite loop sliding | 
+| infinite | boolean | `true` | Infinite loop sliding |
 | mobileFirst | boolean | `true` | Enable mobile first calculation for responsive settings |
-| options | object | `null` | All settings as one object | 
+| options | object | `null` | All settings as one object |
 | pauseOnHover | boolean | `true` | Pause autoplay when a slide is hovered |
 | pauseOnDotsHover | boolean | `false` | Pause autoplay when a dot is hovered |
-| responsive | object | `null` | Object containing breakpoints and settings objects | 
-| speed | integer (ms) | `300` | Slide animation speed in milliseconds | 
+| responsive | object | `null` | Object containing breakpoints and settings objects |
+| speed | integer (ms) | `300` | Slide animation speed in milliseconds |
 | timing | string | `ease` | Transition timing function <br> (`linear`/`ease`/`ease-in`/`ease-out`/`ease-in-out`) |
-| unagile | boolean | `false` | Disable agile carousel | 
+| unagile | boolean | `false` | Disable agile carousel |
+| targetSide | number | 0 | Index of the slide you wish to switch. Slider listens to the changes of this value |
+| nextSlide | $event | | When right arrow is clicked, slider emits event to the parent component |
+| prevSlide | $event | | When left arrow is clicked, slider emits event to the parent component |
 
 ### Example
 
@@ -103,7 +106,7 @@ data () {
     return {
         options: {
             arrows: false,
-            
+
             responsive: [
                 {
                     breakpoint: 600,
@@ -111,7 +114,7 @@ data () {
                         dots: false
                     }
                 },
-                
+
                 {
                     breakpoint: 900,
                     settings: {
@@ -128,7 +131,7 @@ data () {
 
 ## Arrows
 
-By default carousel contains SVG arrows. You can change them using CSS or `prevArrow` & `nextArrow` parameters. 
+By default carousel contains SVG arrows. You can change them using CSS or `prevArrow` & `nextArrow` parameters.
 
 There are two important things:
 
@@ -177,7 +180,7 @@ toggleAgile () {
 ## SSR Support
 
 The component uses browser specific attributes (like `window` and `document`). It is necessary, so probably the only option is to run vue-agile only on the client-side. It was tested on [nuxt v1.0.0-rc7](https://github.com/nuxt/nuxt.js/releases/tag/v1.0.0-rc7) and works fine.
- 
+
 ### Example
 ```js
 // plugins/vue-agile.js
@@ -201,7 +204,7 @@ module.exports = {
 ```vue
 <no-ssr placeholder="Loading...">
     <agile>
-        ... 
+        ...
     </agile>
 </no-ssr>
 ```
@@ -212,10 +215,10 @@ PS. If you know a better way to work the component with SSR please, [let me know
 ```
 # install dependencies
 yarn install
- 
+
 # serve with hot reload at localhost:8080
 yarn run dev
- 
+
 # create UMD bundle.
 yarn run bundle
 ```

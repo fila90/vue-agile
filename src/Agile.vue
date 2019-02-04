@@ -150,6 +150,11 @@
             unagile: {
                 type: Boolean,
                 default: false
+            },
+
+            targetSide: {
+                type: Number,
+                default: 0
             }
         },
 
@@ -486,10 +491,12 @@
 
             nextSlide () {
                 this.setSlide(this.currentSlide + 1)
+                this.$emit('nextSlide', this.currentSlide)
             },
 
             prevSlide () {
                 this.setSlide(this.currentSlide - 1)
+                this.$emit('prevSlide', this.currentSlide)
             },
 
             reload () {
@@ -592,6 +599,11 @@
                         this.handleMouseUp()
                     }
                 }
+            },
+
+            targetSide () {
+                if (this.targetSide > this.slidesCount) return
+                this.setSlide(this.targetSide)
             }
         }
     }
